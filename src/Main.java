@@ -45,8 +45,21 @@ public class Main {
             System.out.println(e.getMessage());
         }
 
-        library.borrowBook("Java Programming");
-        library.returnBook("Clean Code");
-        library.returnBook("Java Programming");
+        try {
+            library.borrowBook("Java Programming");
+        } catch (EmptyLibraryException | BookNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            library.returnBook("Clean Code");
+        } catch (BookNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            library.returnBook("Java Programming");
+        } catch (BookNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
